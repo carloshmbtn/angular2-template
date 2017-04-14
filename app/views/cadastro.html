@@ -6,3 +6,9 @@
     </select>
     <button type="submit">Enviar</button>
 </form>
+
+<div *ngIf="sucesso">
+    <p>Enviado com sucesso</p>
+    <p>{{alunoText}}</p>
+    <a href="#" (click)="esconder()">fechar(x)</a>
+</div>

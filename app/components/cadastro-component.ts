@@ -9,6 +9,8 @@ import {Aluno} from '../models/aluno';
 export class CadastroComponent {
     private aluno: Aluno;
     private cursos: Object[];
+    private sucesso: boolean;
+    private alunoText: string;
 
     constructor(){
         this.aluno = new Aluno(undefined, undefined, undefined);
@@ -18,9 +20,16 @@ export class CadastroComponent {
             {"nome": "Ciências da Computação", "sigla": "CC"},
             {"nome": "Sistemas de Informação", "sigla": "SI"}
         ];
+        this.sucesso = false;
     }
 
     enviar(): void {
         console.log(this.aluno);
+        this.alunoText = JSON.stringify(this.aluno);
+        this.sucesso = true;
+    }
+
+    esconder():void{
+        this.sucesso = false;
     }
 }
