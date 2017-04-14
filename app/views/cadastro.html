@@ -1,5 +1,8 @@
 <form (ngSubmit)="enviar()">
     <label>Nome: </label><input type="text" [(ngModel)]="aluno.nome"><br>
     <label>RGA: </label><input type="text" [(ngModel)]="aluno.RGA"><br>
+    <select [(ngModel)]="aluno.curso">
+        <option *ngFor="#c of cursos" value="{{c.sigla}}">{{c.nome}}</option>
+    </select>
     <button type="submit">Enviar</button>
 </form>

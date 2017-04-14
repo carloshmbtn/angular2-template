@@ -8,9 +8,16 @@ import {Aluno} from '../models/aluno';
 
 export class CadastroComponent {
     private aluno: Aluno;
+    private cursos: Object[];
 
     constructor(){
-        this.aluno = new Aluno(undefined, undefined);
+        this.aluno = new Aluno(undefined, undefined, undefined);
+        this.cursos = [
+            {"nome": "Selecione...", "sigla": null},
+            {"nome": "Análise de Desenvolvimento de Sistemas", "sigla": "TADS"},
+            {"nome": "Ciências da Computação", "sigla": "CC"},
+            {"nome": "Sistemas de Informação", "sigla": "SI"}
+        ];
     }
 
     enviar(): void {
