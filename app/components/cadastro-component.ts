@@ -39,17 +39,17 @@ export class CadastroComponent {
     }
 
     hasErrors(): boolean {
-		var hasE: boolean = false;
-		for(var controlName in this.alunoForm.controls) {
-			var control: AbstractControl = this.alunoForm.controls[controlName];
-			if(!control.valid /*&& !control.pristine*/) {
-				hasE = true;
-				break;
-			}
+        var hasE: boolean = false;
+        for(var controlName in this.alunoForm.controls) {
+            var control: AbstractControl = this.alunoForm.controls[controlName];
+            if(!control.valid /*&& !control.pristine*/) {
+                hasE = true;
+                break;
+            }
         }
-		this.erro = hasE;
-		return hasE;
-	}
+        this.erro = hasE;
+        return hasE;
+    }
 
     enviar(): void {
         if(!this.hasErrors()){
