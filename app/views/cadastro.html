@@ -1,6 +1,22 @@
-<form (ngSubmit)="enviar()">
-    <label>Nome: </label><input type="text" [(ngModel)]="aluno.nome"><br>
-    <label>RGA: </label><input type="text" [(ngModel)]="aluno.RGA"><br>
+<div *ngIf="erro">
+    <ul>
+        <li *ngIf="!alunoForm.find('nome').valid
+            && erro">
+            Digite um nome
+        </li>
+        <li *ngIf="alunoForm.find('RGA').hasError('required')
+            && erro">
+            Digite um RGA
+        </li>
+        <li *ngIf="alunoForm.find('RGA').hasError('RGA')">
+            RGA inválido
+        </li>
+    </ul>
+</div>
+
+<form (ngSubmit)="enviar()" [ngFormModel]="alunoForm">
+    <label>Nome: </label><input type="text" [(ngModel)]="aluno.nome" name="nome" ngControl="nome"><br>
+    <label>RGA: </label><input type="text" [(ngModel)]="aluno.RGA" name="RGA" ngControl="RGA"><br>
     <select [(ngModel)]="aluno.curso">
         <option *ngFor="#c of cursos" value="{{c.sigla}}">{{c.nome}}</option>
     </select>
